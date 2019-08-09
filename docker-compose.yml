@@ -1,0 +1,21 @@
+local:
+  image: postgres:11.2
+  ports:
+    - "5432:5432"
+  volumes:
+    - ./db/dumps:/app-db-dumps
+  environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=node-graphql-starter
+
+test:
+  image: postgres:11.2
+  ports:
+    - "5433:5432"
+  volumes:
+    - ./db/dumps:/app-db-dumps
+  environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=node-graphql-starter-test
